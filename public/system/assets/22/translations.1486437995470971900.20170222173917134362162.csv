@@ -1,0 +1,451 @@
+Translation Keys,en-US,zh-CN
+Last Week,Last Week,上周
+Latest Orders,Latest Orders,新订单
+Paid Orders Count,Paid Orders Count,Paid Orders Count
+Qor DEMO,Qor DEMO,Qor DEMO
+Registered Users Count,Registered Users Count,注册用户统计
+Reports,Reports,报告
+This Week,This Week,本周
+Update Report,Update Report,更新报告
+Yesterday,Yesterday,昨天
+abandoned_orders.actions.Delete,,删除
+abandoned_orders.attributes.Abandoned Reason,,Abandoned Reason
+abandoned_orders.attributes.Cancelled At,,Cancelled At
+abandoned_orders.attributes.ID,,ID
+abandoned_orders.attributes.Payment Amount,,Payment Amount
+abandoned_orders.attributes.Returned At,,Returned At
+abandoned_orders.attributes.Shipped At,,Shipped At
+abandoned_orders.attributes.State,,State
+abandoned_orders.attributes.Tracking Number,,Tracking Number
+abandoned_orders.attributes.User,,User
+abandoned_orders.name.plural,,Abandoned Orders
+abandoned_orders.scopes.Amount Greater Than,,Amount Greater Than
+abandoned_orders.scopes.Amount Greater Than.10000,,10000
+abandoned_orders.scopes.Amount Greater Than.20000,,20000
+abandoned_orders.scopes.Amount Greater Than.5000,,5000
+action_arguments.attributes.From,,From
+action_arguments.attributes.From.placeholder,,Select an Option
+action_arguments.attributes.To,,To
+action_arguments.attributes.To.placeholder,,Select an Option
+activity.comment on,,comment on
+addresses.attributes.Address1,,地址1
+addresses.attributes.Address2,,地址2
+addresses.attributes.City,,城市
+addresses.attributes.Contact Name,,联系人
+addresses.attributes.Phone,,电话
+articles.actions.Create New Version,,创建新版本
+articles.actions.Delete,,删除
+articles.attributes.Author,,作者
+articles.attributes.Author.placeholder,,Select an Option
+articles.attributes.Content,,Content
+articles.attributes.ID,,ID
+articles.attributes.Live Now,,Live Now
+articles.attributes.Publish Ready,,Publish Ready
+articles.attributes.Scheduled End At,,Scheduled End At
+articles.attributes.Scheduled End At.placeholder,,YYYY-MM-DD HH:MM
+articles.attributes.Scheduled Event,,Scheduled Event
+articles.attributes.Scheduled Start At,,Scheduled Start At
+articles.attributes.Scheduled Start At.placeholder,,YYYY-MM-DD HH:MM
+articles.attributes.Title,,标题
+articles.attributes.Version Name,,版本名
+articles.name,,文章
+articles.name.plural,,Articles
+collections.actions.Delete,,Delete
+collections.actions.Localize,,Localize
+collections.attributes.ID,,ID
+collections.attributes.Localization,,Localization
+collections.attributes.Name,,Name
+collections.name,,Collection
+collections.name.plural,,Collections
+color_variations.attributes.Color,,颜色
+color_variations.attributes.Color.placeholder,,Select an Option
+color_variations.attributes.Images,,图片
+color_variations.attributes.Shareable Version,,Shareable Version
+color_variations.attributes.Size Variations,,Size Variations
+color_variations.attributes.add_Image,,添加图片
+color_variations.attributes.add_图片,,Add 图片
+colors.actions.Delete,,Delete
+colors.actions.Localize,,Localize
+colors.attributes.Code,,Code
+colors.attributes.ID,,ID
+colors.attributes.Localization,,Localization
+colors.attributes.Name,,Name
+colors.name.plural,,Colors
+en-US,en-US,en-US
+export_translation_arguments.attributes.Scope,,Scope
+export_translation_arguments.attributes.Scope.placeholder,,Select an Option
+home.feature_product.subtitle,"Your daily dose of QOR, brought to you by <a href=""https://theplant.jp/"">The Plant</a>","你每日使用 QOR的量, 通过 <a href=""https://theplant.jp/""> The Plant</a> 反馈给你"
+home.feature_product.title,FEATURED PRODUCTS,特色产品
+home.goodness.find_a_store,FIND A STORE,寻找店铺
+home.goodness.get_newsletter,GET OUR NEWSLETTER,订阅我们的信件
+home.goodness.get_newsletter_info,"Be the first to get new product infos, monthly newsletter exclusive deals and discounts!",订阅邮件获取最新的产品和折扣信息!
+home.goodness.subtitle,If you just can't get enough…,如果你仍然没有得到足够的...
+home.goodness.title,MORE QOR GOODNESS,更多关于QOR
+layout.about_qor,"<p>QOR is Open Source software brought to you by <a href=""https://theplant.jp/"">The Plant</a> under an MIT license.</p><p>The name “QOR” is a trademark of The Plant and <a href=""https://theplant.jp/"">subject to trademark restrictions</a>.</p>","<p>Qor 是公开的开源项目，在 MIT 许可下发布。通过 <a href=""https://theplant.jp/"">The Plant</a> 呈现给你</p><p> “QOR” 是 The Plant 的商标<a href=""https://theplant.jp/"">受商标权的限制</a>.</p>"
+layout.connect,CONNECT,联系我们
+layout.footer_link.about_us,About Us,关于我们
+layout.footer_link.blog,Blog,博客
+layout.footer_link.faq,FAQs,常见问题解答
+layout.footer_link.press,Press,新闻
+layout.footer_link.privacy_policy,Privacy Policy,隐私政策
+layout.footer_link.shipping,Shipping,配送
+layout.footer_link.size_guide,Size Guide,尺寸指南
+layout.footer_link.terms_of_use,Terms of Use,使用条款
+layout.header_link.accessories,ACCESSORIES,配件
+layout.header_link.apparel,APPAREL,衣服
+layout.header_link.cart,CART,购物车
+layout.header_link.help,HELP,帮助
+layout.header_link.logout,Logout,登出
+layout.header_link.my_account,MY ACCOUNT,我的账户
+layout.header_link.register,REGISTER,
+layout.header_link.sign_in,SIGN IN,登录
+layout.header_link.stationery,STATIONERY,文具
+layout.support_and_info,SUPPORT & INFO,支持 & 信息
+login.Need an Account?,,
+login.button,Login,登录
+login.email,Email:,邮箱地址:
+login.forget_password,Forget Password,忘记密码
+login.password,Password:,密码:
+login.register,Register,注册
+login.remember_me,Remember,记住密码
+my_seo_settings.default_metas.description,,这里你可以设置站点信息
+my_seo_settings.default_metas.title,,站点范围设置
+my_seo_settings.description,,站点描述
+my_seo_settings.keywords,,站点关键字
+my_seo_settings.name.plural,,我的SEO设置
+my_seo_settings.page_metas.description,,"这里默认使用的是系统的设置, 你可以改变一些东西"
+my_seo_settings.page_metas.title,,默认页面信息
+my_seo_settings.title,,HTML 标题
+notifications.name.plural,,Notifications
+order_items.attributes.Discount Rate,,Discount Rate
+order_items.attributes.Price,,Price价格
+order_items.attributes.Quantity,,Quantity
+order_items.attributes.Size Variation,,Size Variation
+order_items.attributes.Size Variation.placeholder,,Select an Option
+order_items.attributes.State,,State
+orders.actions.Cancel,Cancel,取消
+orders.actions.Delete,Delete,删除
+orders.actions.Processing,Processing,进度
+orders.attributes.Abandoned Reason,,Abandoned Reason
+orders.attributes.Billing Address,,Billing Address
+orders.attributes.Cancelled At,Cancelled At,Cancelled At
+orders.attributes.Cancelled At.placeholder,,年-月-日 时:分
+orders.attributes.Order Items,,Order Items
+orders.attributes.Payment Amount,Payment Amount,Payment Amount
+orders.attributes.Returned At,,Returned At
+orders.attributes.Returned At.placeholder,,YYYY-MM-DD HH:MM
+orders.attributes.Shipped At,Shipped At,Shipped At
+orders.attributes.Shipped At.placeholder,,YYYY-MM-DD
+orders.attributes.Shipping Address,Shipping Address,Shipping Address
+orders.attributes.State,State,State
+orders.attributes.Tracking Number,,Tracking Number
+orders.attributes.User,User,用户
+orders.attributes.User.placeholder,,Select an Option
+orders.attributes.add_Order Item,,Add Order Item
+orders.name,,Order
+orders.name.plural,,Orders
+orders.scopes.Order Status,,Order Status
+orders.scopes.Order Status.Cancelled,,Cancelled
+orders.scopes.Order Status.Checkout,,Checkout
+orders.scopes.Order Status.Paid,,Paid
+orders.scopes.Order Status.Paid Cancelled,,Paid Cancelled
+orders.scopes.Order Status.Processing,,Processing
+orders.scopes.Order Status.Returned,,Returned
+orders.scopes.Order Status.Shipped,,Shipped
+product.add_to_cart,ADD TO CART,添加到购物车
+product.add_to_wishlist,TO WISHLIST,添加到购物列表
+product.also_bought,WHAT OTHER PEOPLE BOUGHT,用户还买了什么
+product.also_bought_note,"People who bought this products, also bought the following products","买过这件产品的用户, 还购买了以下产品"
+product.color,COLOR:,颜色:
+product.description,DESCRIPTION:,描述:
+product.framistan,Framistan:,Framistan:
+product.made_in,Made in:,制作地:
+product.materials,Materials:,材料:
+product.quantity,QTY:,数量:
+product.recommendations,RECOMMENDATIONS,推荐
+product.recommendations_note,Products you might also like based on other products you viewed,你可能还会喜欢下面的产品
+product.share,SHARE:,分享:
+product.size,SIZE:,尺寸:
+product.size_guide,Size Guide,尺寸表
+product.specs,SPECS:,规格:
+product_properties.attributes.Name,,Name
+product_properties.attributes.Value,,Value
+products.actions.Create New Version,,Create New Version
+products.actions.Delete,,删除
+products.actions.Localize,,Localize
+products.actions.Sync from Name,,Sync from Name
+products.actions.View On Site,,点看查看
+products.attributes.Category,,分类
+products.attributes.Category.placeholder,,选择一个操作
+products.attributes.Code,,Code
+products.attributes.Collections,,Collections
+products.attributes.Color Variations,,Color Variations
+products.attributes.Description,,Description
+products.attributes.Made Country,,Made Country
+products.attributes.Made Country.placeholder,,Select an Option
+products.attributes.Main Image,,Main Image
+products.attributes.Name,,Name
+products.attributes.Name's slug,,Name's slug
+products.attributes.Price,,Price
+products.attributes.Product Properties,,Product Properties
+products.attributes.Publish Ready,,Publish Ready
+products.attributes.Scheduled End At,,Scheduled End At
+products.attributes.Scheduled End At.placeholder,,YYYY-MM-DD HH:MM
+products.attributes.Scheduled Event,,Scheduled Event
+products.attributes.Scheduled Start At,,Scheduled Start At
+products.attributes.Scheduled Start At.placeholder,,YYYY-MM-DD HH:MM
+products.attributes.Version Name,,Version Name
+products.attributes.add_Main Image,,Add Main Image
+products.attributes.add_Product Property,,Add Product Property
+products.description,,Meta Description
+products.filter.Collections,,Collections
+products.form.sections.Basic Information,,Basic Information
+products.form.sections.Organization,,Organization
+products.form.sections.Seo Meta,,Seo Meta
+products.keywords,,Meta Keywords
+products.name,,Product
+products.name.plural,,Products
+products.scopes.Made Country,,Made Country
+products.scopes.Made Country.China,,China
+products.scopes.Made Country.Japan,,Japan
+products.scopes.Made Country.USA,,USA
+products.title,,HTML Title
+qor_action_bar.action.Admin Dashboard,Admin Dashboard,管理员面板
+qor_action_bar.action.Edit SEO,Edit SEO,SEO编辑
+qor_action_bar.action.edit,EDIT,编辑
+qor_action_bar.action.logged_as,Logged in as {{.DisplayName}},用户 {{.DisplayName}}
+qor_action_bar.action.login,LOGIN,登录
+qor_action_bar.action.logout,LOGOUT,退出
+qor_action_bar.action.preview,PREVIEW,预览
+qor_actionbar.form.edit,Edit Action Bar,编辑操作栏
+qor_activities.attributes.Content,,内容
+qor_activities.attributes.Note,,Note
+qor_activity.form.add_activity,,Add Activity
+qor_activity.form.new_activity,,New Activity
+qor_activity.form.note,,Note:
+qor_activity.form.tab_title,,Activity
+qor_admin.account.logout,logout,退出
+qor_admin.actions.bulk_edit,Bulk Edit,Bulk Edit
+qor_admin.actions.executed,,Action {{.Name}}: Executed
+qor_admin.actions.executed_successfully,,Action {{.Name}}: Executed successfully
+qor_admin.actions.exit_bulk_edit,Exit Bulk Edit,Exit Bulk Edit
+qor_admin.actions.localized,,Localized
+qor_admin.actions.not_localized,,Not Localized
+qor_admin.actions.please_select_an_item,,Please select an item
+qor_admin.actions.query_mode,,Query Mode
+qor_admin.actions.search_bar_search,Search,搜索
+qor_admin.actions.sorting_mode,,搜索模式
+qor_admin.actions.undone,,Action {{.Name}}: Undone
+qor_admin.form.add_Product,,Add Product
+qor_admin.form.add_items,,ADD ITEMS
+qor_admin.form.add_resource,,Add {{$1}}
+qor_admin.form.are_you_sure,Are You Sure?,你确定？
+qor_admin.form.button.change_position,,Change Position
+qor_admin.form.button.done,,Done
+qor_admin.form.button.move,,移动
+qor_admin.form.cancel,,取消
+qor_admin.form.cancel_edit,,取消编辑
+qor_admin.form.click_to_select,,点击选择
+qor_admin.form.crop_image,,Crop image
+qor_admin.form.done,Done,成功
+qor_admin.form.edit.title,,编辑 {{$1}}
+qor_admin.form.enter_search_term,,Enter Search Term
+qor_admin.form.index.title,{{$1}},{{$1}}
+qor_admin.form.new.title,,Add {{$1}}
+qor_admin.form.notifications/notifications.title,,{{$1}}
+qor_admin.form.ok,,OK
+qor_admin.form.save_changes,,保存更改
+qor_admin.form.select_many_hint,,item(s) selected
+qor_admin.form.select_many_hint_button,,DONE
+qor_admin.form.show.title,,{{$1}} Details
+qor_admin.form.submit,,Submit
+qor_admin.form.successfully_updated,,{{.Name}} was successfully updated
+qor_admin.form.undo,,UNDO
+qor_admin.form.widget_no_settings,,No configurable settings for this container.
+qor_admin.layout.header.actions,Actions,Actions
+qor_admin.layout.logo,"<a href=""{{.Prefix}}""><span class=""visuallyhidden"">QOR</span></a><a href=""/"" target=""_blank"">View Site <i class=""material-icons md-14"" aria-hidden=""true"">open_in_new</i></a>","<a href=""{{.Prefix}}""><span class=""visuallyhidden"">QOR</span></a><a href=""/"" target=""_blank"">View Site <i class=""material-icons md-14"" aria-hidden=""true"">open_in_new</i></a>"
+qor_admin.layout.powered_by,"Powered by <a href=""http://getqor.com"" target=""_blank"">QOR</a>",技术支持
+qor_admin.layout.skip_to_content,Skip to content,跳到内容
+qor_admin.layout.title,Admin,管理员
+qor_admin.menus.Abandoned Orders,Abandoned Orders,Abandoned Orders
+qor_admin.menus.Articles,Articles,标题
+qor_admin.menus.Blog Management,Blog Management,微博管理
+qor_admin.menus.Categories,Categories,分类
+qor_admin.menus.Collections,Collections,Collections
+qor_admin.menus.Colors,Colors,颜色
+qor_admin.menus.Dashboard,Dashboard,数据面板
+qor_admin.menus.Events,Events,事件
+qor_admin.menus.Order Management,Order Management,Order Management
+qor_admin.menus.Orders,Orders,Orders
+qor_admin.menus.Product Images,Product Images,产品图片
+qor_admin.menus.Product Management,Product Management,产品管理
+qor_admin.menus.Products,Products,产品
+qor_admin.menus.Publishing,Publishing,发布
+qor_admin.menus.SEO Setting,SEO Setting,SEO设置
+qor_admin.menus.Schedules,Schedules,时刻表
+qor_admin.menus.Shop Setting,Shop Setting,店铺设置
+qor_admin.menus.Site Management,Site Management,站点管理
+qor_admin.menus.Sizes,Sizes,尺寸
+qor_admin.menus.Store Management,Store Management,商店管理
+qor_admin.menus.Stores,Stores,商店
+qor_admin.menus.Translations,Translations,翻译
+qor_admin.menus.User Management,User Management,用户管理
+qor_admin.menus.Users,Users,用户
+qor_admin.menus.Widget Contents,Widget Contents,控件内容
+qor_admin.menus.Workers,Workers,职员
+qor_admin.pagination.100_entries,100 Entries per page,100 Entries per page
+qor_admin.pagination.20_entries,20 Entries per page,20 Entries per page
+qor_admin.pagination.50_entries,50 Entries per page,50 Entries per page
+qor_admin.pagination.first,,首页
+qor_admin.pagination.last,Last Page,尾页
+qor_admin.pagination.next,Next Page,下一页
+qor_admin.pagination.page_num,Page {{.Pages}},{{.Pages}}页
+qor_admin.pagination.previous,,Previous Page
+qor_admin.pagination.show_all,Show All Entries,显示所有
+qor_admin.publish.button.versions,,VERSIONS
+qor_admin.publish.hint.this_version_is_live,,This version is live
+qor_admin.publish.hint.view_all_versions_to_see_which_is_live,,View all versions to see which is live
+qor_admin.search_center.all,,All
+qor_admin.search_center.hint,Search…,搜索…
+qor_admin.search_center.orders,,Order
+qor_admin.search_center.products,,Product
+qor_admin.search_center.title,Search Center,搜索中心
+qor_admin.search_center.users,,User
+qor_admin.search_center.view_all,,View All
+qor_i18n.actions.export_translations,Export Translations,导出翻译
+qor_i18n.actions.import_translations,Import Translations,导入翻译
+qor_i18n.form.cancel_edit,Cancel Edit,取消编辑
+qor_i18n.form.copy,Copy,复制
+qor_i18n.form.save,Save,保存
+qor_i18n.form.saved,Saved,已保存
+qor_i18n.form.source,Source,资源
+qor_i18n.form.target,Target,目标
+qor_i18n.form.translation_title,Translation,翻译
+qor_media_library.form.cancel,,取消
+qor_media_library.form.choose_file,,Choose File
+qor_media_library.form.choose_file.max_hint,,Choose up to {{$1}} item(s)
+qor_media_library.form.crop_image,,Crop image
+qor_media_library.form.crop_image.undo_delete,,取消删除
+qor_media_library.form.ok,,OK
+qor_media_library.form.save,,SAVE
+qor_notification.actions.Check It Out,,Check It Out
+qor_notification.actions.Confirm,,确定
+qor_notification.actions.Dismiss,,不看了
+qor_notification.hints.archived_notifications,,Archived Notifications
+qor_notification.hints.load_more,,查看更多...
+qor_notification.hints.loading,,加载中...
+qor_notification.hints.undo,,取消
+qor_publish.Coming Online,,Coming Online
+qor_publish.Going Online,,Going Offline
+qor_publish.action_bar.include_content_that_not_publish_ready,Include content that is not Publish-ready,
+qor_publish.action_bar.time_travel,Time Travel,
+qor_publish.action_bar.title.filter_by,TIME TRAVEL/PUBLISH STATE…,
+qor_publish.schedule.change_values_for_this_version_only,,Change values for this version only
+qor_publish.schedule.custom,,Custom
+qor_publish.schedule.schedule_time,,Schedule Time
+qor_publish.schedule.scheduled_publishing,,All Scheduled Publishing
+qor_publish.schedule.this_month,,本月
+qor_publish.schedule.this_week,,这周
+qor_publish.schedule.today,,今日
+qor_seo.Default Page.title,,默认页面
+qor_seo.Product Page.title,,产品页
+qor_seo.alert.meta_updated_failed,,哎呀呀！除了点错误，请重试！
+qor_seo.alert.meta_updated_successfully,,Meta data updated successful!
+qor_seo.use_default,,Use Defaults
+qor_widget.form.edit,Edit Widget,Edit Widget
+qor_worker.actions.back_to_lists,,Back To Lists
+qor_worker.filter.all,,All Jobs
+qor_worker.filter.done,,Done
+qor_worker.filter.errors,,Errors
+qor_worker.filter.running,,Running
+qor_worker.filter.scheduled,,Scheduled
+qor_worker.form.successfully_created,,{{.Name}} was successfully created
+qor_worker.job_groups.Export/Import Translations From CSV file,,Export/Import Translations From CSV file
+qor_worker.jobs.Export Translations,,Export Translations
+recover.button,Recover,重置
+recover.confirm_email,Email Confirmation:,确认邮箱地址:
+recover.email,Email:,邮箱地址:
+recover_complete.button,Recover,重置
+recover_complete.confirm_new_password,New Password Confirmation:,确认新密码:
+recover_complete.new_password,New Password:,新密码:
+register.button,Register,注册
+register.confirm_password,Confirm Password,确认密码
+register.email,Email:,邮箱地址:
+register.password,Password:,密码:
+scheduled_events.attributes.Scheduled End At.placeholder,,Scheduled End At
+scheduled_events.attributes.Scheduled Start At.placeholder,,Scheduled Start At
+scheduled_events.name.plural,,Events
+scheduled_events.tables.no_items,,No events to show.
+schedules.name.plural,,Schedules
+selected_products_arguments.attributes.Products,,Products
+seo_global_settings.attributes.Site Name,,Site Name
+shop_settings.attributes.COD Fee,,COD Fee
+shop_settings.attributes.Company Address,,Company Address
+shop_settings.attributes.Company Address.Address,,Address
+shop_settings.attributes.Company Address.City,,City
+shop_settings.attributes.Company Address.Country,,Country
+shop_settings.attributes.Company Address.Region,,Region
+shop_settings.attributes.Company Address.Search on Map,,Search on Map
+shop_settings.attributes.Company Address.Set Address from Marker,,Set Address from Marker
+shop_settings.attributes.Company Address.Zip,,Zip
+shop_settings.attributes.Gift Wrapping Fee,,Gift Wrapping Fee
+shop_settings.attributes.Shipping Fee,,Shipping Fee
+shop_settings.attributes.Tax Rate,,Tax Rate
+shop_settings.name,,Shop Setting
+size_variations.attributes.Available Quantity,,Available Quantity
+size_variations.attributes.Shareable Version,,Shareable Version
+size_variations.attributes.Size,,Size
+size_variations.attributes.Size.placeholder,,Select an Option
+slide_images.attributes.Image,,Image
+slide_images.attributes.Title,,Title
+slide_images.attributes.add_Image,,Add Image
+slide_show_arguments.attributes.Slide Images,,Slide Images
+slide_show_arguments.attributes.add_Slide Image,,Add Slide Image
+stores.actions.Delete,,Delete
+stores.attributes.Address,,Address
+stores.attributes.City,,City
+stores.attributes.Country,,Country
+stores.attributes.Email,,Email
+stores.attributes.ID,,ID
+stores.attributes.Owner,,Owner
+stores.attributes.Phone,,Phone
+stores.attributes.Region,,Region
+stores.attributes.Store Name,,Store Name
+stores.attributes.Zip,,Zip
+stores.name.plural,,Stores
+stores.tables.no_items,,No stores to show.
+translations.name.plural,Translations,Translations
+users.actions.Delete,,Delete
+users.attributes.Addresses,,Addresses
+users.attributes.Confirmed,,Confirmed
+users.attributes.Email,,Email
+users.attributes.Gender,,Gender
+users.attributes.Gender.placeholder,,Select an Option
+users.attributes.ID,,ID
+users.attributes.Name,,Name
+users.attributes.Password,,Password
+users.attributes.Role,,Role
+users.attributes.Role.placeholder,,Select an Option
+users.attributes.add_Address,,Add Address
+users.form.sections.Basic Information,,Basic Information
+users.name,,User
+widget_contents.actions.Delete,,Delete
+widget_contents.actions.Localize,,Localize
+widget_contents.actions.Preview,,Preview
+widget_contents.attributes.Name,,Name
+widget_contents.attributes.Template,,Template
+widget_contents.attributes.Template.placeholder,,Select an Option
+widget_contents.attributes.Widgets,,Widgets
+widget_contents.attributes.Widgets.placeholder,,Select an Option
+widget_contents.form.sections.Settings,,Settings
+widget_contents.name,,Widget Content
+widget_contents.name.plural,,Widget Contents
+widget_contents.tables.no_items,,No widget contents to show.
+workers.attributes.Created At,,Created At
+workers.attributes.ID,,ID
+workers.attributes.Name,,Name
+workers.attributes.Status,,Status
+workers.name,,Worker
+workers.name.plural,,Workers
+workers.tables.no_items,,No workers to show.
+zh-CN,zh-CN,zh-CN
