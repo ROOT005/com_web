@@ -1,4 +1,8 @@
 package db
 
-type DB struct {
-}
+import (
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+)
+
+var DB, _ = gorm.Open("mysql", "root:special005@/com_admin?charset=utf8&parseTime=True&loc=Local")

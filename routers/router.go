@@ -32,10 +32,17 @@ func init() {
 
 	//为富文本工具添加Asset
 	assetManager := Admin.AddResource(&media_library.AssetManager{}, &admin.Config{Invisible: true})
-	/*添加菜单*/
+	/****************添加菜单**************************/
 	Admin.AddResource(&models.User{})
-	Admin.AddResource(&models.Product{})
-	Admin.AddResource(&models.Project{})
+	//产品管理
+	product := Admin.AddResource(&models.Product{}, &admin.Config{PageCount: 20})
+	product.Meta(&admin.Meta{Name: "Description", Config: &admin.RichEditorConfig{AssetManager: assetManager, Plugins: []admin.RedactorPlugin{
+		{Name: "table", Source: "/admin/asset/js/redactor_table.js"},
+	}}})
+	product.IndexAttrs("ID", "Name", "Rate", "SourceCompany", "CreatedAt")
+	//项目管理
+	Admin.AddResource(&models.Project{}, &admin.Config{PageCount: 20})
+
 	//博客管理
 	blog := Admin.AddResource(&models.Blog{}, &admin.Config{Menu: []string{
 		"Site Management"}})
@@ -43,6 +50,7 @@ func init() {
 		{Name: "table", Source: "/admin/asset/js/redactor_table.js"},
 	}}})
 	blog.IndexAttrs("ID", "Title", "Author", "CreatedAt")
+
 	Admin.AddResource(&models.Index{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(&models.Pictures{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(&models.Seo{}, &admin.Config{Menu: []string{"Site Management"}})
@@ -53,10 +61,12 @@ func init() {
 	mux := http.NewServeMux()
 	Admin.MountTo("/admin", mux)
 	beego.Handler("/admin/*", mux)
-
+	//404
+	beego.ErrorController(&controllers.ErrorController{})
 	//创建主页路由
 	beego.Router("/", &controllers.HomeController{})
-
+	//产品路由
+	beego.Router("/products", &controllers.ProductsController{})
 	//创建博客路由
 	beego.RESTRouter("/news", &controllers.NewsController{})
 }

@@ -1,0 +1,7 @@
+body{
+    background-image: url('/static/img/404.jpg');
+}
+a{
+    text-decoration: none;
+    text-align: center;
+}

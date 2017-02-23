@@ -1,87 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>新闻动态页</title>
-<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<link href="/static/css/blog.css" rel="stylesheet" type="text/css" media="all" />
-<!-- Custom Theme files -->
-<script src="/static/js/jquery.js"></script>
-<script src="/static/js/bootstrap.min.js" charset="utf-8"></script>
-<!-- Custom Theme files -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--webfont-->
- <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>
-</head>
-<body>
-	<!-- header-section-starts -->
-  <div class="container nav" id="header">
-      <div class="navigation">
-          <nav class="navbar navbar-default" role="navigation">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-              </div>
-              <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-left link-effect">
-                      <li><a href="home.html" class="scroll">主页</a></li>
-                      <li><a href="product.html" class="scroll">找资金</a></li>
-                      <li><a href="project.html" class="scroll">找项目</a></li>
-                      <li><a href="blog.html" class="scroll">行业动态</a></li>
-                      <li><a href="about.html" class="scroll">关于我们</a></li>
-                      <div class="clearfix"></div>
-                  </ul>
-              </div><!--/.navbar-collapse-->
-          </nav>
-      </div>
-  </div><!--navgination_end-->
-  <div class="container-fluid banner">
-      <div  id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-          <!-- 下边的点 -->
-          <ol class="carousel-indicators visible-lg-inline">
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-          <!-- 内容 -->
-          <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                  <img class="img-responsive" src="/static/img/product_banner.jpg" alt="">
-                  <div class="carousel-caption">
-                  </div>
-              </div>
-              <div class="item">
-                  <img class="img-responsive" src="/static/img/product_banner.jpg" alt="">
-                  <div class="carousel-caption">
-                  </div>
-              </div>
-              <div class="item">
-                  <img class="img-responsive" src="/static/img/product_banner.jpg" alt="">
-                  <div class="carousel-caption">
-                  </div>
-              </div>
-          </div>
-          <!-- 控制 -->
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          </a>
-      </div>
-  </div>
+{{template "nav_banner" .}}
   <div class="container choice">
     <ul>
         <li><a class="btn btn-info" href="" title="" role="button">行业动态</a><a class="btn btn-info" href="" title="" role="button">融资攻略</a></li>
@@ -127,5 +44,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+    {{template "footer" .}}
