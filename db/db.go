@@ -5,4 +5,4 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-var DB, _ = gorm.Open("mysql", "root:special005@/com_admin?charset=utf8&parseTime=True&loc=Local")
+var DB, err = gorm.Open("mysql", "root:special005@/com_admin?charset=utf8&parseTime=True&loc=Local")

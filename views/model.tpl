@@ -2,7 +2,7 @@
 <div class="modal fade" id="product_info" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-        {{with .product}}
+        {{range .products}}
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h2 class="modal-title" id="gridSystemModalLabel">{{.Name}}</h2>

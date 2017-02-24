@@ -2,10 +2,10 @@ package routers
 
 import (
 	"com_web/controllers"
+	"com_web/db"
 	"com_web/models"
 	"github.com/astaxie/beego"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"github.com/qor/admin"
 	"github.com/qor/i18n"
 	"github.com/qor/i18n/backends/database"
@@ -18,7 +18,7 @@ import (
 
 func init() {
 	/*链接数据库*/
-	DB, _ := gorm.Open("mysql", "root:special005@/com_admin?charset=utf8&parseTime=True&loc=Local")
+	DB := db.DB
 	/*本地化数据*/
 	I18n := i18n.New(
 		database.New(DB),

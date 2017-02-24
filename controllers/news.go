@@ -12,7 +12,6 @@ type NewsController struct {
 }
 
 func (c *NewsController) Get() {
-	//db, _ := gorm.Open("mysql", "root:special005@/com_admin?charset=utf8&parseTime=True&loc=Local")
 	var (
 		blogs models.Blog
 	)

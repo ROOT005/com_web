@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"com_web/db"
+	//"com_web/db"
 	"com_web/models"
 	"github.com/astaxie/beego"
 )
@@ -11,11 +11,15 @@ type ProductsController struct {
 }
 
 func (c *ProductsController) Get() {
-	var (
-		products models.Product
-	)
-	product := db.DB.First(&products).Limit(1).Value
-	c.Data["product"] = product.(*models.Product)
+
+	//products, err := models.GetAllProducts()
+	products := models.GetAllProducts()
+	c.Data["products"] = products
+	/*if err {
+		c.Data["products"] = products
+	} else {
+		c.Data["products"] = nil
+	}*/
 	c.Data["head_title"] = "产品中心"
 	c.Data["style_name"] = "product"
 	c.TplName = "products.tpl"
