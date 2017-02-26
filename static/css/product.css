@@ -187,7 +187,17 @@ li .more{
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
-
+.pag{
+    text-align: center;
+}
+.pag a{
+    color: #5bc0de !important;
+}
+.active a{
+    border-color: #5bc0de !important;
+    background-color:  #5bc0de !important;
+    color: #fff !important;
+}
 /*responsive*/
 @media(max-width: 360px){
 .modal-content{

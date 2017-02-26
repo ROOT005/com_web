@@ -4,6 +4,7 @@ import (
 	//"com_web/db"
 	"com_web/models"
 	"github.com/astaxie/beego"
+	"strconv"
 )
 
 type ProductsController struct {
@@ -13,8 +14,12 @@ type ProductsController struct {
 func (c *ProductsController) Get() {
 
 	//products, err := models.GetAllProducts()
-	products := models.GetAllProducts()
-	c.Data["products"] = products
+	/****************传入数据**************/
+	pre_page := 10
+	pa := 1
+	pa, _ = strconv.Atoi(c.Input().Get("p"))
+	products := models.GetAllProducts(pa, pre_page)
+	c.Data["paginator"] = products
 	/*if err {
 		c.Data["products"] = products
 	} else {
