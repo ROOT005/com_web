@@ -7,23 +7,47 @@ import (
 	"math"
 )
 
+type Classfication struct {
+	gorm.Model
+	Name string
+}
 type Product struct {
 	gorm.Model
-	Name          string
-	Count         string
-	Rate          string
-	RepayTime     string
-	RepayWay      string
-	SourceCompany string
-	Industry      string
-	LoanTime      string
-	Description   string `sql:"size:5000"`
+	Name            string
+	Count           string
+	Classfication   Classfication
+	ClassficationID uint
+	Rate            string
+	RepayTime       string
+	RepayWay        string
+	SourceCompany   string
+	Industry        string
+	LoanTime        string
+	Description     string `sql:"size:5000"`
 }
 
-func GetAllProducts(page, prepage int) map[string]interface{} {
-	var product []Product
-	db.DB.Find(&product)
+//获取分类
+func GetAllClassfication() []*Classfication {
+	var classfication []*Classfication
+	db.DB.Find(&classfication)
+	return classfication
+}
 
+//获取制定产品信息
+func GetProduct(id int) []*Product {
+	var product []*Product
+	db.DB.First(&product, id)
+	return product
+}
+
+//获取产品
+func GetAllProducts(page, prepage int, class int) map[string]interface{} {
+	var product []Product
+	if class == 0 {
+		db.DB.Find(&product)
+	} else {
+		db.DB.Where("classfication_id = ?", class).Find(&product)
+	}
 	/*****************分页********************/
 	nums := len(product)
 	var firstpage int //前一页地址
@@ -67,9 +91,11 @@ func GetAllProducts(page, prepage int) map[string]interface{} {
 	//获取数据
 	var products []Product
 	startP := (page - 1) * prepage
-
-	db.DB.Find(&products).Limit(prepage).Offset(startP)
-
+	if class == 0 {
+		db.DB.Limit(prepage).Offset(startP).Find(&products)
+	} else {
+		db.DB.Where("classfication_id = ?", class).Limit(prepage).Offset(startP).Find(&products)
+	}
 	paginatorMap := make(map[string]interface{})
 	paginatorMap["products"] = products
 	paginatorMap["pages"] = pages

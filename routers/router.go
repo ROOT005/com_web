@@ -24,9 +24,8 @@ func init() {
 		database.New(DB),
 		yaml.New(filepath.Join("conf/locals")),
 	)
-
 	/*注册资源*/
-	DB.AutoMigrate(&models.User{}, &models.Product{}, &models.Blog{}, models.Index{}, &models.Project{}, &models.Pictures{}, &models.Seo{}, models.MediaLibrary{}, &media_library.AssetManager{})
+	DB.AutoMigrate(&models.User{}, &models.Classfication{}, &models.Product{}, &models.Blog{}, &models.Index{}, &models.Project{}, &models.Pictures{}, &models.Seo{}, &models.MediaLibrary{}, &media_library.AssetManager{})
 	Admin := admin.New(&qor.Config{DB: DB})
 	media_library.RegisterCallbacks(DB)
 
@@ -39,7 +38,9 @@ func init() {
 	product.Meta(&admin.Meta{Name: "Description", Config: &admin.RichEditorConfig{AssetManager: assetManager, Plugins: []admin.RedactorPlugin{
 		{Name: "table", Source: "/admin/asset/js/redactor_table.js"},
 	}}})
-	product.IndexAttrs("ID", "Name", "Rate", "SourceCompany", "CreatedAt")
+	product.Meta(&admin.Meta{Name: "Classfication", Config: &admin.SelectOneConfig{AllowBlank: false}})
+	product.IndexAttrs("ID", "Name", "Rate", "SourceCompany", "CreatedAt", "Classfication")
+	Admin.AddResource(&models.Classfication{})
 	//项目管理
 	Admin.AddResource(&models.Project{}, &admin.Config{PageCount: 20})
 
@@ -67,6 +68,7 @@ func init() {
 	beego.Router("/", &controllers.HomeController{})
 	//产品路由
 	beego.Router("/products", &controllers.ProductsController{})
+	beego.Router("/products/product_info", &controllers.ProductsController{}, "get:Product_Info")
 	//创建博客路由
 	beego.RESTRouter("/news", &controllers.NewsController{})
 }

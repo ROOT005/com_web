@@ -10,7 +10,7 @@
                      <li class="list-group-item"><span>利率:</span>{{.Rate}}起</li>
                       <li class="list-group-item"><span>期限:</span>{{.RepayTime}}</li>
                      <li class="list-group-item"><span>还款方式:</span>{{.RepayWay}}</li>
-                    <li class="list-group-item"><a class="scroll btn btn-lg more btn-block more" href="" data-toggle="modal" data-target="#product_info">更多</a></li>
+                    <li class="list-group-item"><a class="scroll btn btn-lg btn-block more"  id="{{.ID}}"data-toggle="modal" data-target="#product_info">更多</a></li>
                 </ul>
             </div>
         </div>
