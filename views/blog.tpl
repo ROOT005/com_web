@@ -20,7 +20,7 @@
 							<a href="single.html" class="blog-title">{{.title}}</a>
 							<p class="sub_head">由<a href="#">{{.author}}</a>于{{.time}}发表</p>
 							<span></span>
-							<p>{{str2html .content}}</p>
+							<p class="content">{{str2html .abstract}}</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>

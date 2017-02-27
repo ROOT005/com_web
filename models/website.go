@@ -9,11 +9,20 @@ import (
 /*文章*/
 type Blog struct {
 	gorm.Model
-	KeyWords string
-	Author   string
-	Title    string
-	Content  string `sql:"size:5000"`
+	KeyWords       string
+	BlogCategory   BlogCategory
+	BlogCategoryID uint
+	Author         string
+	Title          string
+	Abstract       string `sql:"size:1000`
+	Content        string `sql:"size:5000"`
 	//Seo     qor_seo.Setting
+}
+
+/*博客分类*/
+type BlogCategory struct {
+	gorm.Model
+	Name string
 }
 
 /*主页内容*/

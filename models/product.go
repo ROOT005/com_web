@@ -11,12 +11,18 @@ type Classfication struct {
 	gorm.Model
 	Name string
 }
+type CountRange struct {
+	gorm.Model
+	Name string
+}
 type Product struct {
 	gorm.Model
 	Name            string
 	Count           string
 	Classfication   Classfication
 	ClassficationID uint
+	CountRange      CountRange
+	CountRangeID    uint
 	Rate            string
 	RepayTime       string
 	RepayWay        string
@@ -33,6 +39,13 @@ func GetAllClassfication() []*Classfication {
 	return classfication
 }
 
+//获取资金范围
+func GetAllRange() []*CountRange {
+	var countrange []*CountRange
+	db.DB.Find(&countrange)
+	return countrange
+}
+
 //获取制定产品信息
 func GetProduct(id int) []*Product {
 	var product []*Product
@@ -41,13 +54,21 @@ func GetProduct(id int) []*Product {
 }
 
 //获取产品
-func GetAllProducts(page, prepage int, class int) map[string]interface{} {
+func GetAllProducts(page, prepage int, class, rangec int) map[string]interface{} {
 	var product []Product
-	if class == 0 {
+	if class == 0 && rangec == 0 {
 		db.DB.Find(&product)
-	} else {
+	}
+	if class != 0 && rangec == 0 {
 		db.DB.Where("classfication_id = ?", class).Find(&product)
 	}
+	if class == 0 && rangec != 0 {
+		db.DB.Where("count_range_id = ?", rangec).Find(&product)
+	}
+	if class != 0 && rangec != 0 {
+		db.DB.Where(map[string]interface{}{"classfication_id": class, "count_range_id": rangec}).Find(&product)
+	}
+
 	/*****************分页********************/
 	nums := len(product)
 	var firstpage int //前一页地址
@@ -91,10 +112,17 @@ func GetAllProducts(page, prepage int, class int) map[string]interface{} {
 	//获取数据
 	var products []Product
 	startP := (page - 1) * prepage
-	if class == 0 {
+	if class == 0 && rangec == 0 {
 		db.DB.Limit(prepage).Offset(startP).Find(&products)
-	} else {
+	}
+	if class != 0 && rangec == 0 {
 		db.DB.Where("classfication_id = ?", class).Limit(prepage).Offset(startP).Find(&products)
+	}
+	if class == 0 && rangec != 0 {
+		db.DB.Where("count_range_id = ?", rangec).Limit(prepage).Offset(startP).Find(&products)
+	}
+	if class != 0 && rangec != 0 {
+		db.DB.Where(map[string]interface{}{"classfication_id": class, "count_range_id": rangec}).Limit(prepage).Offset(startP).Find(&products)
 	}
 	paginatorMap := make(map[string]interface{})
 	paginatorMap["products"] = products

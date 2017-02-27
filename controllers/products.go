@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	//"com_web/db"
 	"com_web/models"
+	//"fmt"
 	"github.com/astaxie/beego"
 	"strconv"
 )
@@ -17,10 +17,16 @@ func (c *ProductsController) Get() {
 	pre_page := 10
 	pa := 1
 	var class int
+	var rangec int
+
 	pa, _ = strconv.Atoi(c.Input().Get("p"))
 	class, _ = strconv.Atoi(c.Input().Get("id"))
-	products := models.GetAllProducts(pa, pre_page, class)
+	rangec, _ = strconv.Atoi(c.Input().Get("rangec"))
+	products := models.GetAllProducts(pa, pre_page, class, rangec)
 	classfication := models.GetAllClassfication()
+	rangecount := models.GetAllRange()
+
+	c.Data["rangecount"] = rangecount
 	c.Data["paginator"] = products
 	c.Data["classfication"] = classfication
 	c.Data["head_title"] = "产品中心"
