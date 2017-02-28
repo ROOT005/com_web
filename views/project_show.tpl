@@ -20,14 +20,14 @@
 <div class="container">
     <nav class="pag">
       <ul class="pagination pagination-lg">
-        <li class=""><a href="/products/?p={{.paginator.firstpage}}">&laquo;</a></li>
-        <li> <a href="/products/?p=1">首页</a></li>
+        <li class=""><a href="/projects/?p={{.paginator.firstpage}}">&laquo;</a></li>
+        <li> <a href="/projects/?p=1">首页</a></li>
         {{range $index,$page := .paginator.pages}}
         <li  {{if eq $.paginator.currpage $page }}class="active"{{end}}>
-            <a href="/products/?p={{$page}}">{{$page}}</a></li>  
+            <a href="/projects/?p={{$page}}">{{$page}}</a></li>  
         {{end}}
-        <li><a href="/products/?p={{.paginator.totalpages}}">尾页</a></li>
-        <li><a href="/products/?p={{.paginator.lastpage}}">&raquo;</a></li>
+        <li><a href="/projects/?p={{.paginator.totalpages}}">尾页</a></li>
+        <li><a href="/projects/?p={{.paginator.lastpage}}">&raquo;</a></li>
       </ul>
 </nav>
 </div>

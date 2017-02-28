@@ -102,10 +102,10 @@ ul, li{
   letter-spacing: 1px;
 }
 .choice{
-    margin: 2em auto;
+    margin: 1em auto;
 }
 .choice li{
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bold;
 }
 .choice li a{

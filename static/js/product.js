@@ -21,6 +21,7 @@ $(document).ready(function() {
     var urlid = GetUrlParameter("id");
     var urlrangec = GetUrlParameter("rangec");
     var len = $(".pagination li").length;
+
     //修改分页url参数
     for (var i = 0; i < len; i++) {
         var currenturl = $(".pagination a").eq(i).attr('href');
@@ -30,17 +31,18 @@ $(document).ready(function() {
     for (var i = 0; i < $('.rangecount a').length; i++) {
         var currenturl = $(".rangecount a").eq(i).attr('href');
         $('.rangecount a').eq(i).attr('href', currenturl+"&id="+urlid);
-        console.log($(".rangecount a").eq(i).attr('href'));
     }
     //修改分类url
     for (var i = 0; i < $('.classficiation a').length; i++){
         var currenturl = $('.classficiation a').eq(i).attr('href');
         $('.classficiation a').eq(i).attr('href', currenturl+"&rangec="+urlrangec);
     }
+    //变色
+    $("li.rangecount ."+urlrangec).css('background-color', '#2b90d9');
+    $("li.classficiation ."+urlid).css('background-color', '#2b90d9');
 });
 
-function GetUrlParameter(name)
-{
+function GetUrlParameter(name){
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
