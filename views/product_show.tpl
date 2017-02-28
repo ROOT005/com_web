@@ -20,7 +20,7 @@
 <div class="container">
     <nav class="pag">
       <ul class="pagination pagination-lg">
-        <li class=""><a href="/products/?p={{.paginator.firstpage}}">&laquo;</a></li>
+        <li class="" ><a href="/products/?p={{.paginator.firstpage}}">&laquo;</a></li>
         <li> <a href="/products/?p=1">首页</a></li>
         {{range $index,$page := .paginator.pages}}
         <li  {{if eq $.paginator.currpage $page }}class="active"{{end}}>
@@ -29,6 +29,6 @@
         <li><a href="/products/?p={{.paginator.totalpages}}">尾页</a></li>
         <li><a href="/products/?p={{.paginator.lastpage}}">&raquo;</a></li>
       </ul>
-</nav>
+    </nav>
 </div>
 {{end}}

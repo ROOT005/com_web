@@ -8,12 +8,11 @@
 <meta name="description" content="">
 <script src="/static/js/jquery.js" type="text/javascript"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-<link href="/static/css/{{.style_name}}.css" rel="stylesheet" type="text/css" media="all" />
 <script src="/static/js/{{.style_name}}.js"  type="text/javascript" charset="utf-8"></script>
 <script src="/static/js/headroom.js" type="text/javascript"></script>
 <link rel="icon" href="">
 <link href="/static/css/bootstrap.css" rel="stylesheet">
-<link href="/static/css/product.css" rel="stylesheet">
+<link href="/static/css/{{.style_name}}.css" rel="stylesheet" type="text/css" media="all" />
     <title>{{.head_title}}</title>
 </head>
 <body>

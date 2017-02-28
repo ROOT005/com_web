@@ -122,6 +122,12 @@ ul, li{
     margin: 1em 0em 1em 1.5em;
 }
 /*choice_end*/
+.modal-content{
+    width: 800px;
+}
+.modal-header h2{
+    text-align: center;
+}
 /*product_show*/
 .project_show{
     border-top: 2px solid #5BC0DE;
@@ -137,7 +143,7 @@ ul, li{
     transform: scale(1.05, 1.05);
     box-shadow: 1px 5px 5px 3px #777;
 }
-.projectt_title{
+.project_title{
     background-color:#5bc0de;
     color: #fff;
 }
@@ -187,7 +193,17 @@ li .more{
     -moz-transform: translateY(0px);
     transform: translateY(0px);
 }
-
+.pag{
+    text-align: center;
+}
+.pag a{
+    color: #5bc0de !important;
+}
+.active a{
+    border-color: #5bc0de !important;
+    background-color:  #5bc0de !important;
+    color: #fff !important;
+}
 /*responsive*/
 @media(max-width: 768px){
 .navbar{

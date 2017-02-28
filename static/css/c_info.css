@@ -13,7 +13,7 @@ a:hover { text-decoration: none; }
 .header {
     margin: 0 auto;
     padding-bottom: 5px;
-    background: #f8f8f8 url(../images/pattern.jpg) left top repeat;
+    background: #f8f8f8 url(/static/img/pattern.jpg) left top repeat;
     border-top: 3px solid #5CA7BA;
     -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
     -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
@@ -61,7 +61,7 @@ a:hover { text-decoration: none; }
 
 .register form {
     padding: 20px 50px 40px 50px;
-    background: #f8f8f8 url(../images/pattern.jpg) left top repeat;
+    background: #f8f8f8 url(/static/img/pattern.jpg) left top repeat;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
     border-radius: 8px;
@@ -74,7 +74,7 @@ a:hover { text-decoration: none; }
 .register form h2 {
     margin-bottom: 25px;
     padding-bottom: 15px;
-    background: url(../images/pencil.png) 70px 6px no-repeat;
+    background: url(/static/img/pencil.png) 70px 6px no-repeat;
     border-bottom: 2px dotted #bbb;
     font-size: 30px;
     font-weight: 400;
@@ -166,7 +166,7 @@ a:hover { text-decoration: none; }
 
 @media (max-width: 1200px) {
 
-    .register form h2 { background: url(../images/pencil.png) 20px 6px no-repeat; }
+    .register form h2 { background: url(/static/img/pencil.png) 20px 6px no-repeat; }
 
 }
 

@@ -82,7 +82,7 @@ func init() {
 	//404
 	beego.ErrorController(&controllers.ErrorController{})
 	//创建主页路由
-	beego.Router("/", &controllers.HomeController{})
+	beego.Router("/home", &controllers.HomeController{})
 	//产品路由
 	beego.Router("/products", &controllers.ProductsController{})
 	beego.Router("/products/product_info", &controllers.ProductsController{}, "get:Product_Info")
@@ -90,5 +90,9 @@ func init() {
 	beego.Router("/projects", &controllers.ProjectController{})
 	beego.Router("/projects/project_info", &controllers.ProjectController{}, "get:Project_Info")
 	//创建博客路由
-	beego.RESTRouter("/news", &controllers.NewsController{})
+	beego.Router("/news", &controllers.NewsController{})
+	//创建关于我们页
+	beego.Router("/about", &controllers.AboutController{})
+	//咨询页
+	beego.Router("/consult", &controllers.ConsultController{})
 }

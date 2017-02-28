@@ -30,7 +30,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <a href="c_info.html" class="btn btn-info" role="button">咨询</a>
+            <a href="/consult" class="btn btn-info" role="button">咨询</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -67,7 +67,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <a href="c_info.html" class="btn btn-info" role="button">咨询</a>
+            <a href="/consult" class="btn btn-info" role="button">咨询</a>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

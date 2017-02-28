@@ -1,10 +1,10 @@
 {{define "project_show"}}
-    <div class="product_show">
+    <div class="project_show">
     <div class="container">
         {{range .paginator.projects}}
-        <div class="col-md-2 product">
+        <div class="col-md-2 project">
             <div class="panel">
-                <div class="scroll panel-heading product_title"><h6 class="text-center">{{.Name}}</h6></div>
+                <div class="scroll panel-heading project_title"><h6 class="text-center">{{.Name}}</h6></div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><span>额度:</span><strong>{{.Count}}</strong></li>
                      <li class="list-group-item"><span>行业:</span>{{.Industry}}</li>

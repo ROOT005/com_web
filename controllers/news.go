@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"com_web/db"
 	"com_web/models"
+	"fmt"
 	"github.com/astaxie/beego"
-	//"github.com/jinzhu/gorm"
+	"reflect"
+	"strconv"
 )
 
 type NewsController struct {
@@ -12,17 +13,23 @@ type NewsController struct {
 }
 
 func (c *NewsController) Get() {
+	pre_page := 10
+	pa := 1
 	var (
-		blogs models.Blog
+		category int
 	)
-	category := models.GetAllBlogCategory()
-	blog := db.DB.Where(&models.Blog{Author: "root"}).First(&blogs).Value
-	c.Data["time"] = blog.(*models.Blog).CreatedAt.Format("2006-01-02")
-	c.Data["title"] = blog.(*models.Blog).Title
-	c.Data["abstract"] = blog.(*models.Blog).Abstract
-	c.Data["author"] = blog.(*models.Blog).Author
+	pa, _ = strconv.Atoi(c.Input().Get("p"))
+	category, _ = strconv.Atoi(c.Input().Get("blogcategory"))
+	//获取数据库内容
+	blogs := models.GetAllBlog(pa, pre_page, category)
+	categories := models.GetAllBlogCategory()
+	c.Data["blogcategory"] = categories
+	c.Data["paginator"] = blogs
+	fmt.Println(reflect.TypeOf(blogs["blogs"]))
+	for i, k := range blogs["blogs"].([]models.Blog) {
+		fmt.Println(i, k)
+	}
 	c.Data["head_title"] = "新闻动态"
 	c.Data["style_name"] = "blog"
-	c.Data["blogcategory"] = category
 	c.TplName = "blog.tpl"
 }

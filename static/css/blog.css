@@ -112,8 +112,6 @@ ul, li{
     font-weight: bold;
     margin: 1em 0em 1em 1.5em;
 }
-
-
 .blog-post img {
 	width: 100%;
 	border-radius: 4px;
@@ -142,7 +140,6 @@ a.blog-title {
 	display:block;
 }
 .blog-post span {
-	width:100px;
 	height:1px;
 	background:#d5d5d5;
 	display:block;
@@ -156,9 +153,11 @@ a.blog-title {
 	padding:0 20px 15px 16px;
 }
 .blog-posts {
-	width: 32.4%;
 	padding: 0;
 	margin-right: 1.333%;
+}
+.head-section{
+	margin-bottom: 1em;
 }
 p.sub_head {
 	color: #000;
@@ -168,6 +167,17 @@ p.sub_head {
 }
 .span_66{
 	margin-right:0;
+}
+.pag{
+    text-align: center;
+}
+.pag a{
+    color: #5bc0de !important;
+}
+.active a{
+    border-color: #5bc0de !important;
+    background-color:  #5bc0de !important;
+    color: #fff !important;
 }
 /********start-slider**************/
 article > div {
@@ -472,7 +482,7 @@ p.reply i{
 	}
 	.single h2 {
 		font-size: 1.2em;
-
+	}
 	.men {
 		padding: 1.5em 0;
 	}

@@ -93,7 +93,7 @@ html, body{
   letter-spacing: 1px;
 }
 .header{
-	background: url(../images/bg.jpg) no-repeat 0% 0%/100% 100%;
+	background: url(/static/img/bg.jpg) no-repeat 0% 0%/100% 100%;
 	padding: 70px 0px 100px;
 }
 a{
@@ -151,7 +151,7 @@ a{
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 	font-size: 20px;
-	color: #d45544;
+	color: #2b90d9;
 }
 .feature p
 {
