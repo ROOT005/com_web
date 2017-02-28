@@ -1,6 +1,7 @@
 package models
 
 import (
+	"com_web/db"
 	"github.com/jinzhu/gorm"
 	"github.com/qor/media_library"
 	qor_seo "github.com/qor/seo"
@@ -23,6 +24,25 @@ type Blog struct {
 type BlogCategory struct {
 	gorm.Model
 	Name string
+}
+
+//获取文章
+func GetBlog(id int) []*Blog {
+	var blog []*Blog
+	db.DB.First(&blog, id)
+	return blog
+}
+
+//获取文章分类
+func GetAllBlogCategory() []*BlogCategory {
+	var blogcategory []*BlogCategory
+	db.DB.Find(&blogcategory)
+	return blogcategory
+}
+
+//获取全部文章
+func GetAllBlog() {
+
 }
 
 /*主页内容*/

@@ -1,7 +1,14 @@
 {{template "nav_banner" .}}
   <div class="container choice">
     <ul>
-        <li><a class="btn btn-info" href="" title="" role="button">行业动态</a><a class="btn btn-info" href="" title="" role="button">融资攻略</a></li>
+        <li>
+        <a class="btn btn-info" href="/news?blogcategory=0" title="" role="button">全部</a>
+        {{range .blogcategory}}
+		<a class="btn btn-info" href="/news?blogcategory={{.ID}}" title="" role="button">
+			{{.Name}}
+		</a>
+		{{end}}	
+        </li>
     </ul>
   </div><!--choice_end-->
 	<div class="content">
