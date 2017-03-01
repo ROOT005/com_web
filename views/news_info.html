@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+{{range .new_info}}
+<title>{{.Title}}</title>
+<link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<!-- Custom Theme files -->
+<link href="/static/css/blog.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/blog.js" type="text/javascript" charset="utf-8"></script>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{{.KeyWords}}"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+ <script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="content">
+		<div class="back">
+			<span class="glyphicon glyphicon-menu-left "></span><a onClick="javascript :history.back(-1);">返回</a>
+		</div>
+		<div class="container">
+			<div class="single-top">
+				<img  src="{{.Mainimage.URL}}" alt=""/>
+			</div>
+			<div class="top-single">
+				<h2>{{.Title}}</h2>
+				<div class="grid-single">
+					<div class="single-one"><span class="glyphicon glyphicon-calendar"></span>&nbsp{{date .CreatedAt "Y-m-d"}}</div></li>
+					<div class="single-one"><span class="glyphicon glyphicon-user"></span>&nbsp{{.Author}}</div>
+					<div class="single-one"><span class="glyphicon glyphicon-tag"></span>&nbsp<a href="http://{{.Link}}">
+					{{.LinkName}}</a></div>
+					<div class="clearfix"> </div>
+				</div>
+				<p class="content">{{str2html .Content}}</p>
+		</div>
+	</div>
+{{end}}
+</body>
+</html>

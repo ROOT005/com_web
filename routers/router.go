@@ -9,11 +9,12 @@ import (
 	"github.com/qor/admin"
 	"github.com/qor/i18n"
 	"github.com/qor/i18n/backends/database"
-	"github.com/qor/i18n/backends/yaml"
 	"github.com/qor/media_library"
 	"github.com/qor/qor"
+	"github.com/qor/qor/resource"
+	"github.com/qor/validations"
+	"golang.org/x/crypto/bcrypt"
 	"net/http"
-	"path/filepath"
 )
 
 func init() {
@@ -22,10 +23,9 @@ func init() {
 	/*本地化数据*/
 	I18n := i18n.New(
 		database.New(DB),
-		yaml.New(filepath.Join("conf/locals")),
 	)
 	/*注册资源*/
-	DB.AutoMigrate(&models.User{}, &models.Classfication{}, &models.Product{}, &models.Blog{}, &models.Index{}, &models.Project{}, &models.Pictures{}, &models.Seo{}, &models.MediaLibrary{}, &media_library.AssetManager{}, &models.CountRange{}, &models.Category{}, &models.ProjectRange{}, &models.BlogCategory{})
+	DB.AutoMigrate(&models.User{}, &models.Classfication{}, &models.Product{}, &models.Blog{}, &models.Index{}, &models.Project{}, &models.Pictures{}, &models.Seo{}, &models.MediaLibrary{}, &media_library.AssetManager{}, &models.CountRange{}, &models.Category{}, &models.ProjectRange{}, &models.BlogCategory{}, &models.AdminUser{})
 	Admin := admin.New(&qor.Config{DB: DB})
 	media_library.RegisterCallbacks(DB)
 
@@ -33,9 +33,34 @@ func init() {
 	assetManager := Admin.AddResource(&media_library.AssetManager{}, &admin.Config{Invisible: true})
 
 	/****************添加菜单**************************/
+	//管理员管理
+	adminuser := Admin.AddResource(&models.AdminUser{})
+	adminuser.Meta(&admin.Meta{Name: "Password",
+		Type:            "password",
+		FormattedValuer: func(interface{}, *qor.Context) interface{} { return "" },
+		Setter: func(resource interface{}, metaValue *resource.MetaValue, context *qor.Context) {
+			values := metaValue.Value.([]string)
+			if len(values) > 0 {
+				if newPassword := values[0]; newPassword != "" {
+					bcryptPassword, err := bcrypt.GenerateFromPassword([]byte(newPassword), bcrypt.DefaultCost)
+					if err != nil {
+						context.DB.AddError(validations.NewError(adminuser, "Password", "无法加密密码"))
+						return
+					}
+					u := resource.(*models.AdminUser)
+					u.Password = string(bcryptPassword)
+				}
+			}
+		},
+	})
 	//用户管理
-	Admin.AddResource(&models.User{})
-
+	user := Admin.AddResource(&models.User{})
+	user.Filter(&admin.Filter{
+		Name: "Demend",
+		Config: &admin.SelectOneConfig{
+			Collection: []string{"找资金", "资方入驻"},
+		},
+	})
 	//产品管理
 	product := Admin.AddResource(&models.Product{}, &admin.Config{PageCount: 20, Menu: []string{"Product Management"}})
 	product.Meta(&admin.Meta{Name: "Description", Config: &admin.RichEditorConfig{AssetManager: assetManager, Plugins: []admin.RedactorPlugin{
@@ -70,29 +95,35 @@ func init() {
 	blog.IndexAttrs("ID", "Title", "Author", "CreatedAt")
 	Admin.AddResource(&models.BlogCategory{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(&models.Index{}, &admin.Config{Menu: []string{"Site Management"}})
-	Admin.AddResource(&models.Pictures{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(&models.Seo{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(I18n)
-
 	/*********************创建路由*********************************/
-	//创建admi路由
+	//创建admin路由
 	mux := http.NewServeMux()
 	Admin.MountTo("/admin", mux)
 	beego.Handler("/admin/*", mux)
+
 	//404
 	beego.ErrorController(&controllers.ErrorController{})
 	//创建主页路由
-	beego.Router("/home", &controllers.HomeController{})
+	beego.Router("/", &controllers.HomeController{})
 	//产品路由
 	beego.Router("/products", &controllers.ProductsController{})
 	beego.Router("/products/product_info", &controllers.ProductsController{}, "get:Product_Info")
 	//创建项目路由
 	beego.Router("/projects", &controllers.ProjectController{})
 	beego.Router("/projects/project_info", &controllers.ProjectController{}, "get:Project_Info")
-	//创建博客路由
+	//创建新闻页路由
 	beego.Router("/news", &controllers.NewsController{})
+	beego.Router("/news/newinfo", &controllers.NewsController{}, "get:News_Info")
 	//创建关于我们页
 	beego.Router("/about", &controllers.AboutController{})
 	//咨询页
 	beego.Router("/consult", &controllers.ConsultController{})
+	beego.Router("/verify", &controllers.VerifyController{})
+	beego.Router("/submit", &controllers.SubmitController{})
+	beego.Router("/submit/phone", &controllers.SubmitController{}, "get:Phone")
+	//登录页
+
+	beego.Router("/login", &controllers.LoginController{})
 }

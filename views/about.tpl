@@ -28,7 +28,7 @@
                 </div>
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left link-effect">
-                      <li><a href="/home" class="scroll">主页</a></li>
+                      <li><a href="/" class="scroll">主页</a></li>
                       <li><a href="/products" class="scroll">找资金</a></li>
                       <li><a href="/projects" class="scroll">找项目</a></li>
                       <li><a href="/news" class="scroll">行业动态</a></li>

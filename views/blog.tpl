@@ -15,26 +15,21 @@
 	<div class="container">
 		<div class="blog-posts-section">
 			<!-- head-section -->
-			<div class="head-section text-center">
-				<h2>行业动态</h2>
-				<span> </span>
-			</div>
+			
 			<!-- /head-section -->
 			
 			<div class="blog-post-grids blog_grids">
 				{{range .paginator.blogs}}
 				<div class="col-md-3 blog-posts">
-					<div class="blog-post">
-						
-						<a href="single.html"><img src="/static/img/b1.jpg"></a>
-						{{map_get .Mainimage 1 "Url"}}
-						<a href="single.html" class="blog-title">{{.Title}}</a>
+					<div class="blog-post">	
+						<a href="/news/newinfo?id={{.ID}}"><img src="{{ .Mainimage.URL}}"></a>
+						<a href="/news/newinfo?id={{.ID}}" class="blog-title">{{.Title}}</a>
 						<p class="sub_head">由<a href="#">{{.Author}}</a> 于{{date .CreatedAt "Y-m-d"}}发表</p>
 						<span></span>
 						<p class="content">{{str2html .Abstract}}</p>
+                        <a class="more" href="/news/newinfo?id={{.ID}}" title="">详细</a>
 					</div>
 				</div>
-				
 				{{end}}
 			</div>
 		</div>

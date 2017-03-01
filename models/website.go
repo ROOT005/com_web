@@ -2,6 +2,7 @@ package models
 
 import (
 	"com_web/db"
+	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/qor/media_library"
 	qor_seo "github.com/qor/seo"
@@ -15,6 +16,8 @@ type Blog struct {
 	BlogCategory   BlogCategory
 	BlogCategoryID uint
 	Author         string
+	Link           string
+	LinkName       string
 	Title          string
 	Mainimage      media_library.MediaBox
 	Abstract       string `sql:"size:5000"`
@@ -51,14 +54,13 @@ func GetAllBlog(page, prepage, blogcategory int) map[string]interface{} {
 	}
 
 	if blogcategory != 0 {
-		db.DB.Where("blog_category_id", blogcategory).Find(&blog)
+		db.DB.Where("blog_category_id = ?", blogcategory).Find(&blog)
 	}
 
 	/*****************分页********************/
 	nums := len(blog)
 	var firstpage int //前一页地址
 	var lastpage int  //后一页地址
-
 	//根据nums总数，和prepage每页数量 生成分页总数
 	totalpages := int(math.Ceil(float64(nums) / float64(prepage))) //page总数
 	if page > totalpages {
@@ -94,8 +96,10 @@ func GetAllBlog(page, prepage, blogcategory int) map[string]interface{} {
 		firstpage = int(math.Max(float64(1), float64(page-1)))
 		lastpage = page + 1
 	}
+	fmt.Println(page, "\n")
 	//获取数据
 	var blogs []Blog
+
 	startP := (page - 1) * prepage
 
 	if blogcategory != 0 {
@@ -104,7 +108,6 @@ func GetAllBlog(page, prepage, blogcategory int) map[string]interface{} {
 	if blogcategory == 0 {
 		db.DB.Limit(prepage).Offset(startP).Find(&blogs)
 	}
-
 	paginatorMap := make(map[string]interface{})
 	paginatorMap["blogs"] = blogs
 	paginatorMap["pages"] = pages

@@ -183,36 +183,26 @@ p.sub_head {
 article > div {
 	text-align: center;
 }
-.pagination {
-	margin: 3em 0 1em 0;
-	width: 100%;
-}
-.pagination ul li {
-	display: inline-block;
-	margin:0 10px;
-}
-.pagination ul li  a {
-	color:#4a4a4a;
-	font-size:1.1em;
-	font-weight:400;
-	text-decoration:none;
-}
-.pagination ul li a.prev {
-	background: #5BC0DE;
-	color: #fff;
-	padding: 4px 10px;
-	font-weight:300;
-}
-.pagination ul li a.next {
-	background: #5BC0DE;
-	color: #fff;
-	padding: 4px 10px;
-	font-weight:300;
-}
+
 /*--- Contact- Starts Here ---*/
 /*--singe--*/
+.content{
+	padding-top: 1em;
+}
+.more{
+   position: absolute;
+   right: 1em;
+   bottom: 2em;
+}
 .single-top img{
 	width:100%;
+	height: 40em;
+    object-fit: cover;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+.single-top h3{
+	text-align: center;
 }
 .single h2{
 	color: #362f2f;
@@ -329,7 +319,7 @@ p.reply i{
 	margin: 2em auto;
 }
 .top-single p{
-	font-size: 1.5em;
+	font-size: 1em;
 	margin-top: 2em;
 }
 /*-- responsive-design starts-here --*/
