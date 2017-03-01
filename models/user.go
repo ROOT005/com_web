@@ -33,3 +33,7 @@ func AddUser(name, demend, count, phone, others string) error {
 	var user = User{Name: name, Demend: demendc, Count: count, Phone: phone, Others: others}
 	return db.DB.Create(&user).Error
 }
+
+func (user AdminUser) DisplayName() string {
+	return user.Email
+}

@@ -1,10 +1,11 @@
 package controllers
 
 import (
-	"crypto/md5"
-	"encoding/hex"
+	"com_web/db"
+	"com_web/models"
+	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/context"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type LoginController struct {
@@ -12,44 +13,28 @@ type LoginController struct {
 }
 
 func (c *LoginController) Get() {
-	c.TplName = "login.tpl"
+	c.TplName = "login.html"
 }
 func (c *LoginController) Post() {
-	uname := stringTomd5(c.Input().Get("uname"), 32)
-	pwd := stringTomd5(c.Input().Get("pwd"), 32)
-	if stringTomd5(beego.AppConfig.String("uname"), 32) == uname && stringTomd5(beego.AppConfig.String("pwd"), 32) == pwd {
-		maxAge := 1<<31 - 1
-		c.Ctx.SetCookie("uname", uname, maxAge, "/")
-		c.Ctx.SetCookie("pwd", pwd, maxAge, "/")
-		c.Redirect("/admin", 301)
-		return
+	email := c.Input().Get("email")
+	password := c.Input().Get("password")
+	//cryptpasswd, _ := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+
+	var adminuser models.AdminUser
+	if !db.DB.First(&adminuser, "email = ?", email).RecordNotFound() {
+		var passwd string
+		passwd = adminuser.Password
+		err := bcrypt.CompareHashAndPassword([]byte(passwd), []byte(password))
+		if err == nil {
+			fmt.Print("hello\n")
+			c.Ctx.SetCookie("id", email, "/")
+			c.Redirect("/admin", 301)
+			return
+		} else {
+			c.Redirect("/", 301)
+		}
+
 	} else {
-		c.Redirect("/", 302)
+		c.Redirect("/", 301)
 	}
-}
-
-//md5加密封装
-func stringTomd5(str string, size int8) string {
-	sourcedata := []byte(str)
-	hash := md5.New()
-	hash.Write(sourcedata)
-	cipherText := hash.Sum(nil)
-	hexText := make([]byte, size)
-	hex.Encode(hexText, cipherText)
-	return string(hexText)
-}
-
-//检查是否登录封装
-func checkAccount(ctx *context.Context) bool {
-	ck, err := ctx.Request.Cookie("uname")
-	if err != nil {
-		return false
-	}
-	uname := ck.Value
-	ck, err = ctx.Request.Cookie("pwd")
-	if err != nil {
-		return false
-	}
-	pwd := ck.Value
-	return stringTomd5(beego.AppConfig.String("uname"), 32) == uname && stringTomd5(beego.AppConfig.String("pwd"), 32) == pwd
 }

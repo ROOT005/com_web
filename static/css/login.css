@@ -1,0 +1,24 @@
+body{
+	background-image: url("/static/img/background.jpg");
+	padding-top: 70px;
+}
+.login{
+	padding-top: 60px;
+	width: 500px;
+	height: 300px;
+	border:3px solid #2b90d9;
+	border-radius: 10px; 
+	left: 30em;
+}
+.logo h2{
+	color: #2b90d9;
+	text-align: center;
+	vertical-align: middle;
+}
+.login_info{
+	color: #2b90d9;
+	vertical-align: center;
+}
+form label{
+	color: #fff;
+}

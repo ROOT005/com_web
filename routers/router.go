@@ -14,9 +14,41 @@ import (
 	"github.com/qor/qor/resource"
 	"github.com/qor/validations"
 	"golang.org/x/crypto/bcrypt"
+	"gopkg.in/authboss.v0"
+	_ "gopkg.in/authboss.v0/auth"
+	_ "gopkg.in/authboss.v0/confirm"
+	_ "gopkg.in/authboss.v0/recover"
+	_ "gopkg.in/authboss.v0/register"
 	"net/http"
 )
 
+type AdminAuth struct{}
+
+var (
+	Auth = authboss.New()
+)
+
+func (AdminAuth) LoginURL(c *admin.Context) string {
+	return "/login"
+}
+
+func (AdminAuth) LogoutURL(c *admin.Context) string {
+	return "/login"
+}
+func (AdminAuth) GetCurrentUser(c *admin.Context) qor.CurrentUser {
+	//password, err := c.Request.Cookie("pa")
+	email, err1 := c.Request.Cookie("id")
+	if err1 == nil /*&& err == nil*/ {
+		var user models.AdminUser
+		if !db.DB. /*Where(map[string]interface{}{
+				"email": email.Value,
+				//"password": password.Value,
+			}).*/First(&user, "email = ?", email).RecordNotFound() {
+			return &user
+		}
+	}
+	return nil
+}
 func init() {
 	/*链接数据库*/
 	DB := db.DB
@@ -34,6 +66,8 @@ func init() {
 
 	/****************添加菜单**************************/
 	//管理员管理
+	admin_auth := AdminAuth{}
+	Admin.SetAuth(&admin_auth)
 	adminuser := Admin.AddResource(&models.AdminUser{})
 	adminuser.Meta(&admin.Meta{Name: "Password",
 		Type:            "password",
@@ -97,12 +131,13 @@ func init() {
 	Admin.AddResource(&models.Index{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(&models.Seo{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(I18n)
+
+	// Register Auth for QOR Admin
 	/*********************创建路由*********************************/
 	//创建admin路由
 	mux := http.NewServeMux()
 	Admin.MountTo("/admin", mux)
 	beego.Handler("/admin/*", mux)
-
 	//404
 	beego.ErrorController(&controllers.ErrorController{})
 	//创建主页路由
