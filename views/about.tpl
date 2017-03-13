@@ -30,7 +30,6 @@
                     <ul class="nav navbar-nav navbar-left link-effect">
                       <li><a href="/" class="scroll">主页</a></li>
                       <li><a href="/products" class="scroll">找资金</a></li>
-                      <li><a href="/projects" class="scroll">找项目</a></li>
                       <li><a href="/news" class="scroll">行业动态</a></li>
                       <li><a href="/about" class="scroll">关于我们</a></li>
                       <div class="clearfix"></div>

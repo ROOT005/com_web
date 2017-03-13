@@ -27,7 +27,6 @@ type Product struct {
 	RepayTime       string
 	RepayWay        string
 	SourceCompany   string
-	Industry        string
 	LoanTime        string
 	Description     string `sql:"size:5000"`
 }
@@ -113,16 +112,16 @@ func GetAllProducts(page, prepage int, class, rangec int) map[string]interface{}
 	var products []Product
 	startP := (page - 1) * prepage
 	if class == 0 && rangec == 0 {
-		db.DB.Limit(prepage).Offset(startP).Find(&products)
+		db.DB.Limit(prepage).Order("created_at desc").Offset(startP).Find(&products)
 	}
 	if class != 0 && rangec == 0 {
-		db.DB.Where("classfication_id = ?", class).Limit(prepage).Offset(startP).Find(&products)
+		db.DB.Where("classfication_id = ?", class).Order("created_at desc").Limit(prepage).Offset(startP).Find(&products)
 	}
 	if class == 0 && rangec != 0 {
-		db.DB.Where("count_range_id = ?", rangec).Limit(prepage).Offset(startP).Find(&products)
+		db.DB.Where("count_range_id = ?", rangec).Order("created_at desc").Limit(prepage).Offset(startP).Find(&products)
 	}
 	if class != 0 && rangec != 0 {
-		db.DB.Where(map[string]interface{}{"classfication_id": class, "count_range_id": rangec}).Limit(prepage).Offset(startP).Find(&products)
+		db.DB.Where(map[string]interface{}{"classfication_id": class, "count_range_id": rangec}).Order("created_at desc").Limit(prepage).Offset(startP).Find(&products)
 	}
 	paginatorMap := make(map[string]interface{})
 	paginatorMap["products"] = products

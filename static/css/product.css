@@ -1,5 +1,5 @@
 html, body{
-    background-color: #ccc;
+    background-image: radial-gradient(farthest-side, #ccc 20%, #8192d6 80%);
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
@@ -8,25 +8,12 @@ html, body{
 ul, li{
     list-style: none;
 }
+img{
+    width: 100%;
+    height: auto;
+}
 .footer {
-    background-color: #202020;
-    background-image: -webkit-gradient(linear, 0 0, 100% 100%,
-                            color-stop(.25, rgba(255, 255, 255, .2)),
-                            color-stop(.25, transparent),
-                            color-stop(.5, transparent),
-                            color-stop(.5, rgba(255, 255, 255, .2)),
-                            color-stop(.75, rgba(255, 255, 255, .2)),
-                            color-stop(.75, transparent),
-                            to(transparent));
-    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-                        transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-                        transparent 75%, transparent);
-    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-                        transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-                        transparent 75%, transparent);
-    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-                        transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-                        transparent 75%, transparent);
+    background-color: rgba(0, 0, 0, 0);
     padding: 1em 0;
     text-align: center;
 }
@@ -58,8 +45,7 @@ ul, li{
     top: 0px;
 }
 .navbar {
-
-  left: 40em;
+    left: 40em;
   min-height: 0;
   margin-bottom: 0;
   border: none;
@@ -72,6 +58,9 @@ ul, li{
   padding-right: 0;
   padding-left: 0;
   }
+.nav{
+    padding-right: 0px!important;
+}
 .nav a{
   outline-style: none;
 }
@@ -111,14 +100,24 @@ ul, li{
 .choice li a{
     font-weight: bold;
     margin: 1em 0em 1em 1.5em;
+    border-radius: 20%;
 }
 /*choice_end*/
 /*modal*/
 .modal-content{
     width: 800px;
 }
+.modal-header{
+    border-bottom: solid 1px #5bc0de;
+}
 .modal-header h2{
     text-align: center;
+}
+.modal-footer{
+    border-top: 1px solid #5bc0de;
+} 
+.description{
+    font-size: 1em !important;
 }
 /*modal_end*/
 /*product_show*/
@@ -126,11 +125,14 @@ ul, li{
     border-top: 2px solid #5BC0DE;
 }
 .product{
-    padding: 0px !important;
+    padding: 0!important;
     margin: 2em 0.5em;
-    background-color: #5bc0de;
+    background-color: rgba(129, 146, 214, 0);
     transform: scale(1, 1);
     transition: transform 0.5s;
+}
+.panel{
+    height: 379px;
 }
 .product:hover{
     transform: scale(1.05, 1.05);
@@ -146,18 +148,25 @@ ul, li{
     font-size: 1.25em;
 }
 .product_show li{
-    text-align: center;
+    text-align: left;
 }
 .product_show strong{
     color: red;
     font-size: 1.5em;
 }
+.product_show .rate_n{
+    font-size: 1.5em !important;
+    color: rgb(250, 190, 0) !important;
+}
+
 li .more{
+    position: relative;
+    bottom: 2px;
     color: #fff;
-    background-color: #5bc0de;
+    background-color: #8192d6;
 }
 #product_info{
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 /*nav var link*/
 .link-effect a {
@@ -214,11 +223,6 @@ li .more{
 .nav{
     padding-left: 0px !important;
     padding-right: 0px !important;
-}
-.navigation{
-    z-index: 1;
-    position: fixed;
-    top: 0px;
 }
 .navbar{
   /*position: relative;*/

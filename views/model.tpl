@@ -11,7 +11,6 @@
               <div class="col-md-6">
                   <ul>
                       <li>资金主体：<span class="company"></span> </li>
-                      <li>偏好行业：<span class="industry"></span></li>
                       <li>额度：<span class="count"></span></li>
                       <li>还款方式：<span class="repayway"></span></li>
                   </ul>
@@ -24,7 +23,6 @@
                   </ul>
               </div>
             </div>
-            <hr style="height: 2px; border-top: 1px solid #5bc0de;">
             <div class="description">
             </div>
           </div>
@@ -61,7 +59,6 @@
                   </ul>
               </div>
             </div>
-            <hr style="height: 2px; border-top: 1px solid #5bc0de;">
             <div class="description">
             </div>
           </div>

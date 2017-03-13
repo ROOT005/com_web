@@ -2,10 +2,9 @@ package models
 
 import (
 	"com_web/db"
-	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/qor/media_library"
-	qor_seo "github.com/qor/seo"
+	//qor_seo "github.com/qor/seo"
 	"math"
 )
 
@@ -96,7 +95,6 @@ func GetAllBlog(page, prepage, blogcategory int) map[string]interface{} {
 		firstpage = int(math.Max(float64(1), float64(page-1)))
 		lastpage = page + 1
 	}
-	fmt.Println(page, "\n")
 	//获取数据
 	var blogs []Blog
 
@@ -122,12 +120,14 @@ func GetAllBlog(page, prepage, blogcategory int) map[string]interface{} {
 /*主页内容*/
 type Index struct {
 	gorm.Model
-	Title      string
-	LSignWords string
-	RSignWords string
-	Logo       media_library.MediaBox
-	Seo        qor_seo.Setting
+	Title       string
+	KeyWord     string
+	Description string
+	LSignWords  string
+	RSignWords  string
+	Logo        media_library.MediaBox
 }
+
 type Pictures struct {
 	gorm.Model
 	Title string

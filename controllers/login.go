@@ -3,7 +3,6 @@ package controllers
 import (
 	"com_web/db"
 	"com_web/models"
-	"fmt"
 	"github.com/astaxie/beego"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -17,17 +16,16 @@ func (c *LoginController) Get() {
 }
 func (c *LoginController) Post() {
 	email := c.Input().Get("email")
+	value := "BgQDwQ3THJn9F7NPLBi6hTI3Fwz55h47jQUVCOL6iq"
 	password := c.Input().Get("password")
-	//cryptpasswd, _ := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
-
 	var adminuser models.AdminUser
-	if !db.DB.First(&adminuser, "email = ?", email).RecordNotFound() {
+	if !db.DB.First(&adminuser, "email = ?", c.Input().Get("email")).RecordNotFound() {
 		var passwd string
 		passwd = adminuser.Password
 		err := bcrypt.CompareHashAndPassword([]byte(passwd), []byte(password))
 		if err == nil {
-			fmt.Print("hello\n")
 			c.Ctx.SetCookie("id", email, "/")
+			c.Ctx.SetCookie("see", value, "/")
 			c.Redirect("/admin", 301)
 			return
 		} else {

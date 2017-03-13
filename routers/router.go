@@ -10,6 +10,8 @@ import (
 	"github.com/qor/i18n"
 	"github.com/qor/i18n/backends/database"
 	"github.com/qor/media_library"
+	//"github.com/qor/notification"
+	//notice_data "github.com/qor/notification/channels/database"
 	"github.com/qor/qor"
 	"github.com/qor/qor/resource"
 	"github.com/qor/validations"
@@ -33,17 +35,14 @@ func (AdminAuth) LoginURL(c *admin.Context) string {
 }
 
 func (AdminAuth) LogoutURL(c *admin.Context) string {
-	return "/login"
+	return "/logout"
 }
 func (AdminAuth) GetCurrentUser(c *admin.Context) qor.CurrentUser {
-	//password, err := c.Request.Cookie("pa")
-	email, err1 := c.Request.Cookie("id")
-	if err1 == nil /*&& err == nil*/ {
+	email, err := c.Request.Cookie("id")
+	value, _ := c.Request.Cookie("see")
+	if err == nil && value.Value == "BgQDwQ3THJn9F7NPLBi6hTI3Fwz55h47jQUVCOL6iq" {
 		var user models.AdminUser
-		if !db.DB. /*Where(map[string]interface{}{
-				"email": email.Value,
-				//"password": password.Value,
-			}).*/First(&user, "email = ?", email).RecordNotFound() {
+		if !db.DB.First(&user, "email = ?", email).RecordNotFound() {
 			return &user
 		}
 	}
@@ -65,6 +64,8 @@ func init() {
 	assetManager := Admin.AddResource(&media_library.AssetManager{}, &admin.Config{Invisible: true})
 
 	/****************添加菜单**************************/
+	//控制面板
+	Admin.AddMenu(&admin.Menu{Name: "Dashboard", Link: "/admin"})
 	//管理员管理
 	admin_auth := AdminAuth{}
 	Admin.SetAuth(&admin_auth)
@@ -87,14 +88,34 @@ func init() {
 			}
 		},
 	})
+
 	//用户管理
 	user := Admin.AddResource(&models.User{})
 	user.Filter(&admin.Filter{
-		Name: "Demend",
+		Name: "State",
 		Config: &admin.SelectOneConfig{
-			Collection: []string{"找资金", "资方入驻"},
+			Collection: []string{"未查看", "已查看"},
 		},
 	})
+	user.Action(&admin.Action{
+		Name: "Check It",
+		Handle: func(actionArgument *admin.ActionArgument) error {
+			for _, record := range actionArgument.FindSelectedRecords() {
+				actionArgument.Context.DB.Model(record.(*models.User)).Update("state", "已查看")
+			}
+			return nil
+		},
+		Modes: []string{"index", "edit", "show", "menu_item"},
+	})
+	//消息管理
+	/*var (
+		users   interface{}
+		context *qor.Context
+	)
+	Notification := notification.New(&notification.Config{})
+	Notification.RegisterChannel(notice_data.New(&notice_data.Config{DB: db.DB}))
+	Notification.GetNotifications(users, context)
+	Admin.NewResource(Notification)*/
 	//产品管理
 	product := Admin.AddResource(&models.Product{}, &admin.Config{PageCount: 20, Menu: []string{"Product Management"}})
 	product.Meta(&admin.Meta{Name: "Description", Config: &admin.RichEditorConfig{AssetManager: assetManager, Plugins: []admin.RedactorPlugin{
@@ -128,7 +149,8 @@ func init() {
 	}}})
 	blog.IndexAttrs("ID", "Title", "Author", "CreatedAt")
 	Admin.AddResource(&models.BlogCategory{}, &admin.Config{Menu: []string{"Site Management"}})
-	Admin.AddResource(&models.Index{}, &admin.Config{Menu: []string{"Site Management"}})
+	index := Admin.AddResource(&models.Index{}, &admin.Config{Menu: []string{"Site Management"}})
+	index.IndexAttrs("ID", "Title", "CreatedAt")
 	Admin.AddResource(&models.Seo{}, &admin.Config{Menu: []string{"Site Management"}})
 	Admin.AddResource(I18n)
 
@@ -159,6 +181,9 @@ func init() {
 	beego.Router("/submit", &controllers.SubmitController{})
 	beego.Router("/submit/phone", &controllers.SubmitController{}, "get:Phone")
 	//登录页
-
 	beego.Router("/login", &controllers.LoginController{})
+	beego.Router("/logout", &controllers.LogoutController{})
+	//后台用户数据获取
+	beego.Router("/users", &controllers.NewUsersController{})
+	beego.Router("/dowload", &controllers.DowloadController{})
 }
